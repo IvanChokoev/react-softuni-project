@@ -11,7 +11,14 @@ import Popup from '../Popup/Popup';
 export default function Login() {
     const [showPopup, setShowPopup] = useState(false);
     const {login, isLoading} = useLogin();
-    const {register, handleSubmit, reset} = useForm();
+    const {
+        register, 
+        handleSubmit, 
+        reset, 
+        formState: {errors},
+    } = useForm();
+
+    console.log(errors);
 
     async function handleLogin(data) {
        const succeeded = await login({
@@ -80,36 +87,36 @@ export default function Login() {
             <div className="box-container">
                 <h2 className="heading">Log In</h2>
 
-                <form id="loginForm" onSubmit={handleSubmit(handleLogin)}>
+                <form onSubmit={handleSubmit(handleLogin)} className="form">
                     <div className="form-control">
-                        <label htmlFor="email">Email: </label>
-                        <input type="email" id="email" placeholder="user@email.com" required {...register('email', emailValidate)}/>
-                        <div className="form-error-message" id="emailError"></div>
-                    </div>
-
-                    <div className="form-control">
-                        <label htmlFor="password">Password: </label>
-                        <input type="password" id="password" placeholder="password123" required {...register('password', passwordValidate)} />
-                        <div className="form-error-message" id="passwordError"></div>
-                    </div>
-
-                    <button type="submit" className="submit-button" id="submitButton">
-                        Log In
-                    </button>
-
-                    {showPopup && (
-                        <Popup
-                            title="Login Failed"
-                            message="Invalid email or password. Please try again."
-                            onClose={closePopup}
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            placeholder="user@email.com"
+                            {...register("email", emailValidate)}
                         />
-                    )}
+                        {errors.email && <span className="form-error-message">{errors.email.message}</span>}
+                    </div>
+                    <div className="form-control">
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            placeholder="password123"
+                            {...register("password", passwordValidate)}
+                        />
+                        {errors.password && <span className="form-error-message">{errors.password.message}</span>}
+                    </div>
+                    <button className="submit-button" type="submit" disabled={isLoading}>
+                        {isLoading ? 'Logging In' : 'Log In'}
+                    </button>
                 </form>
 
                 <p className="additional-info">
-                    Don't have an account?&nbsp;
-                        <Link to={REGISTER} className="register-link">Register</Link>
-                    &nbsp;instead!
+                    Don't have an account?{' '}
+                    <a href={REGISTER} className="register-link">
+                        Register
+                    </a>{' '}
+                    instead!
                 </p>
             </div>
         </div>
