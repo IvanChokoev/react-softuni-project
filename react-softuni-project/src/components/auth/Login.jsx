@@ -1,86 +1,42 @@
-import React, { useState } from 'react';
-import '../auth/Login.css';
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/auth";
+import { useLogin } from '../../hooks/auth';
+import { useForm } from "react-hook-form";
 import { DASHBOARD, REGISTER } from '../../lib/routes';
-import {useLogin} from '../../hooks/auth';
-import {useForm} from "react-hook-form";
 import { emailValidate, passwordValidate } from '../../utils/forum-validate';
+import '../auth/Login.css';
 import Popup from '../Popup/Popup';
 
 
 export default function Login() {
-    const [showPopup, setShowPopup] = useState(false);
-    const {login, isLoading} = useLogin();
-    const {
-        register, 
-        handleSubmit, 
-        reset, 
-        formState: {errors},
-    } = useForm();
+    const { login, isLoading } = useLogin();
+    const { 
+            register, 
+            handleSubmit, 
+            reset, 
+            formState: { errors }} = useForm();
 
-    console.log(errors);
+            console.log('Error data:', errors);
 
     async function handleLogin(data) {
-       const succeeded = await login({
-            email: data.email,
-            password: data.password,
-            redirectTo: DASHBOARD
-        });
-        setShowPopup(true);
-        if (succeeded) reset();
+        console.log('Login form data:', data);
+        try {
+           const succeeded = await login({
+                email: data.email,
+                password: data.password,
+                redirectTo: DASHBOARD,
+            });
+            console.log('Login successful!'); // Log success
+            if (succeeded) reset();
+        } catch (error) {
+            console.error('Login error:', error); // Log the error
+            
+        }
     }
 
-    const closePopup = () => {
-        setShowPopup(false);
-    };
+    console.log('isLoading:', isLoading);
 
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
-    // const [emailError, setEmailError] = useState('');
-    // const [passwordError, setPasswordError] = useState('');
-
-    // const handleEmailBlur = () => {
-    //     // Check if the email is invalid
-    //     if (!email) {
-    //         setEmailError('Email is required.');
-    //     } else if (!isValidEmail(email)) {
-    //         setEmailError('Invalid email.');
-    //     } else {
-    //         setEmailError('');
-    //     }
-    // };
-
-    // const handlePasswordChange = (e) => {
-    //     const newPassword = e.target.value;
-    //     setPassword(newPassword);
-
-    //     // Check if the password is less than 5 characters
-    //     if (newPassword.length > 0 && newPassword.length < 5) {
-    //         setPasswordError('Password not long enough.');
-    //     } else {
-    //         setPasswordError('');
-    //     }
-    // };
-
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-
-    //     // Check if the password is invalid
-    //     if (!password) {
-    //         setPasswordError('Password is required.');
-    //     } else if (password.length < 5) {
-    //         setPasswordError('Password not long enough.');
-    //     } else {
-    //         setPasswordError('');
-    //         // Your login logic goes here
-    //     }
-    // };
-
-    // const isValidEmail = (email) => {
-    //     // Add your email validation logic here
-    //     // For simplicity, this example checks for the presence of an '@' symbol
-    //     return email.includes('@');
-    // };
 
     return (
         <div className="center-container">
@@ -118,6 +74,18 @@ export default function Login() {
                     </a>{' '}
                     instead!
                 </p>
+
+                <button onClick={handleLogin}>Simulate Login Failure</button>
+
+                {/* {showPopup && (
+                    <Popup
+                        title="Incorrect Password"
+                        message="Please check your password and try again."
+                        onClose={closePopup}
+                        show={showPopup}
+                    />
+                )} */}
+
             </div>
         </div>
     );
