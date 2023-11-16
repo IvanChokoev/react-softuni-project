@@ -1,0 +1,32 @@
+.navbar {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    border-top: 6px solid teal;
+    height: 16px;
+    z-index: 3;
+    justify-content: center;
+}
+
+.flex-container {
+    padding: 0 16px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.custom-button {
+    margin-left: auto;
+    background-color: teal;
+    color: white;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
