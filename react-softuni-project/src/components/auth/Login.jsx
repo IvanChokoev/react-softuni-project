@@ -6,8 +6,6 @@ import { useForm } from "react-hook-form";
 import { DASHBOARD, REGISTER } from '../../lib/routes';
 import { emailValidate, passwordValidate } from '../../utils/forum-validate';
 import '../auth/Login.css';
-import Popup from '../Popup/Popup';
-
 
 export default function Login() {
     const { login, isLoading } = useLogin();
@@ -75,17 +73,7 @@ export default function Login() {
                     instead!
                 </p>
 
-                <button onClick={handleLogin}>Simulate Login Failure</button>
-
-                {/* {showPopup && (
-                    <Popup
-                        title="Incorrect Password"
-                        message="Please check your password and try again."
-                        onClose={closePopup}
-                        show={showPopup}
-                    />
-                )} */}
-
+                <button onClick={handleLogin} className="submit-button">Simulate Login Failure</button>
             </div>
         </div>
     );
