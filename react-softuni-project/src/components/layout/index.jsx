@@ -1,26 +1,28 @@
-import React from 'react'
-import { LOGIN } from '../../lib/routes';
+import React from 'react';
+import { DASHBOARD, LOGIN } from '../../lib/routes';
 import { useEffect } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/auth';
+import Navbar from '../navbar';
 
 export default function Layout() {
     const { pathname } = useLocation();
     const navigate = useNavigate();
-    const {user, isLoading} = useAuth();
+    const { user, isLoading } = useAuth();
 
-    
     useEffect(() => {
-        if(pathname.startsWith("/protected") && !user){
-            navigate(LOGIN)
-        }
-    }, [pathname, user])
-    
-    if(isLoading) return "Loading...";
-  
+        if (!isLoading && pathname.startsWith("/protected") && !user) {
+            navigate(LOGIN);
+        } 
+        
+    }, [pathname, user, isLoading]);
+
+    if (isLoading) return "Loading auth user...";
+
     return (
         <>
-            This is the Child: <Outlet/>
+            <Navbar />
+            <Outlet />
         </>
-  )
+    );
 }
