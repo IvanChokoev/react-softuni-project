@@ -2,7 +2,7 @@ import React from 'react';
 import { useRegister } from "../../hooks/auth";
 import { useForm } from "react-hook-form";
 import { DASHBOARD, LOGIN } from '../../lib/routes';
-import { emailValidate, passwordValidate, usernameValidate } from '../../utils/forum-validate';
+import { emailValidate, passwordValidate, usernameValidate } from '../../utils/form-validate';
 import '../auth/Login.css';
 
 export default function Register() {
@@ -11,12 +11,12 @@ export default function Register() {
     register,
     handleSubmit,
     formState: { errors },
-   } = useForm();
-   
+  } = useForm();
+
   async function handleRegister(data) {
     console.log('Signup data:', data);
     try {
-        await signup({
+      await signup({
         username: data.username,
         email: data.email,
         password: data.password,
@@ -26,12 +26,6 @@ export default function Register() {
     } catch (error) {
       console.error('Signup error:', error); // Log the error
     }
-    // signup({
-    //   username: data.username,
-    //   email: data.email,
-    //   password: data.password,
-    //   redirectTo: DASHBOARD,
-    // });
   }
 
   console.log('isLoading:', isLoading);

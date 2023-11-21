@@ -4,23 +4,23 @@ import { useAuth } from "../../hooks/auth";
 import { useLogin } from '../../hooks/auth';
 import { useForm } from "react-hook-form";
 import { DASHBOARD, REGISTER } from '../../lib/routes';
-import { emailValidate, passwordValidate } from '../../utils/forum-validate';
+import { emailValidate, passwordValidate } from '../../utils/form-validate';
 import '../auth/Login.css';
 
 export default function Login() {
     const { login, isLoading } = useLogin();
-    const { 
-            register, 
-            handleSubmit, 
-            reset, 
-            formState: { errors }} = useForm();
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors } } = useForm();
 
-            console.log('Error data:', errors);
+    console.log('Error data:', errors);
 
     async function handleLogin(data) {
         console.log('Login form data:', data);
         try {
-           const succeeded = await login({
+            const succeeded = await login({
                 email: data.email,
                 password: data.password,
                 redirectTo: DASHBOARD,
@@ -29,7 +29,7 @@ export default function Login() {
             if (succeeded) reset();
         } catch (error) {
             console.error('Login error:', error); // Log the error
-            
+
         }
     }
 
@@ -73,7 +73,6 @@ export default function Login() {
                     instead!
                 </p>
 
-                <button onClick={handleLogin} className="submit-button">Simulate Login Failure</button>
             </div>
         </div>
     );
