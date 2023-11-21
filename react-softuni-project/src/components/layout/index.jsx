@@ -1,9 +1,10 @@
-import React from 'react';
-import { DASHBOARD, LOGIN } from '../../lib/routes';
-import { useEffect } from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../hooks/auth';
-import Navbar from '../navbar';
+import { LOGIN } from "../../lib/routes";
+import { useEffect } from "react";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/auth";
+import Navbar from "../../components/layout/Navbar";
+import Sidebar from "../../components/layout/Sidebar";
+import { Box, Flex } from "@chakra-ui/react";
 
 export default function Layout() {
     const { pathname } = useLocation();
@@ -11,10 +12,14 @@ export default function Layout() {
     const { user, isLoading } = useAuth();
 
     useEffect(() => {
+        console.log("pathname:", pathname);
+        console.log("user:", user);
+        console.log("isLoading:", isLoading);
+
         if (!isLoading && pathname.startsWith("/protected") && !user) {
+            console.log("Navigating to login...");
             navigate(LOGIN);
-        } 
-        
+        }
     }, [pathname, user, isLoading]);
 
     if (isLoading) return "Loading auth user...";
@@ -22,7 +27,12 @@ export default function Layout() {
     return (
         <>
             <Navbar />
-            <Outlet />
+            <Flex pt="16" pb="12" mx="auto" w="full" maxW="1200px">
+                <Box w="900px">
+                    <Outlet />
+                </Box>
+                <Sidebar />
+            </Flex>
         </>
     );
 }
