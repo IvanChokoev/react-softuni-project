@@ -1,16 +1,40 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { auth, db } from "../lib/firebase";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DASHBOARD, LOGIN } from "../lib/routes";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, getDoc } from "firebase/firestore";
 import isUsernameExists from "../utils/isUsernameExists";
 
 export function useAuth() {
-    const [authUser, isLoading, error] = useAuthState(auth); 
-    return {user: authUser, isLoading, error};
+    const [authUser, authLoading, error] = useAuthState(auth);
+    const [isLoading, setLoading] = useState(true);
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        console.log("User Auth:",authUser); // Add this line
+        async function fetchData() {
+            try {
+                setLoading(true);
+                const ref = doc(db, "users", authUser.uid);
+                const docSnap = await getDoc(ref);
+                console.log(docSnap.data()); // Add this line
+                setUser(docSnap.data());
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching user data: ", error);
+            }
+        }
+
+        if (!authLoading) {
+            if (authUser) fetchData();
+            else setLoading(false); // Not signed in
+        }
+    }, [authLoading]);
+
+    return { user, isLoading, error };
 }
 
 export function useLogin() {
@@ -40,10 +64,9 @@ export function useLogin() {
                 position: "top",
                 duration: 5000,
             });
-            return false; //return false if login failed
+            setLoading(false);
         } finally {
             setLoading(false);
-            return true; //return true of login succeeded
         }
     }
 
@@ -51,33 +74,32 @@ export function useLogin() {
 }
 
 export function useRegister() {
-    const[isLoading, setLoading] = useState(false);
+    const [isLoading, setLoading] = useState(false);
     const toast = useToast();
     const navigate = useNavigate();
 
     async function register({
-        username, 
-        email, 
-        password, 
+        username,
+        email,
+        password,
         redirectTo = DASHBOARD,
     }) {
         setLoading(true);
 
         const usernameExists = await isUsernameExists(username);
 
-        if(usernameExists) {
+        if (usernameExists) {
             toast({
-                title: "Userame already exists",
+                title: "Username already exists",
                 status: "error",
                 isClosable: true,
-                position:"top",
+                position: "top",
                 duration: 5000,
             });
             setLoading(false);
-
-        }else{
-            try{
-                const res = createUserWithEmailAndPassword(auth, email, password);
+        } else {
+            try {
+                const res = await createUserWithEmailAndPassword(auth, email, password);
 
                 await setDoc(doc(db, "users", res.user.uid), {
                     id: res.user.uid,
@@ -96,7 +118,7 @@ export function useRegister() {
                 });
 
                 navigate(redirectTo);
-            } catch(error){
+            } catch (error) {
                 toast({
                     title: "Signing Up failed",
                     description: error.message,
@@ -109,10 +131,9 @@ export function useRegister() {
                 setLoading(false);
             }
         }
-        setLoading(false);
     }
 
-    return{register, isLoading};
+    return { register, isLoading };
 }
 
 export function useLogout() {
@@ -121,17 +142,17 @@ export function useLogout() {
     const navigate = useNavigate();
 
     async function logout() {
-        if(await signOut()) {
+        if (await signOut()) {
             toast({
-                title:"Successfully logged out",
+                title: "Successfully logged out",
                 status: "success",
                 isClosable: true,
                 position: "top",
                 duration: 5000,
-            })
+            });
             navigate(LOGIN);
-        };
+        } // else: show error [signOut() returns false if failed]
     }
 
-    return{logout, isLoading};
+    return { logout, isLoading };
 }
