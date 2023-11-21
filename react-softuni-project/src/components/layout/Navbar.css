@@ -1,0 +1,45 @@
+.header {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    border-top: 6px solid teal;
+    height: 70px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.flex-container {
+display: flex;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.link {
+    color: teal;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.custom-button {
+    margin-left: auto;
+    color: white;
+    background-color: teal;
+    border: none;
+    padding: 0.35rem 1rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+}
+
+.button:disabled {
+    background-color: #66d9ef;
+}
+
+.content-container {
+  width: 900px;
+}
