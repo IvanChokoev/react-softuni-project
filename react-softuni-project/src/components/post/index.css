@@ -1,0 +1,21 @@
+.your-component {
+    padding: 2px;
+    max-width: 600px;
+    text-align: left;
+}
+
+.box-container {
+    border: 2px solid;
+    border-color: gray;
+    border-radius: 0.25rem;
+}
+
+.inner-box {
+    padding: 2px;
+    min-height: 30px;
+}
+
+.text-content {
+    word-break: break-word;
+    font-size: 0.9rem;
+}
