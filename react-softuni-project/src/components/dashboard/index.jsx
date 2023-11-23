@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { useAuth } from "../../hooks/auth";
-import { usePost } from '../../hooks/posts';
+import { usePosts } from '../../hooks/posts';
 import { useState } from 'react';
 import "../dashboard/index.css"
 import { useAddPost } from '../../hooks/posts';
@@ -55,7 +55,7 @@ function NewPost(){
 
 
 export default function Dashboard() {
-  const { posts, isLoading } = usePost();
+  const { posts, isLoading } = usePosts();
 
   if(isLoading) return "Loading posts...";
 
