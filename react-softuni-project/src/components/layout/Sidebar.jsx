@@ -14,14 +14,11 @@ function ActiveUser() {
         <Stack align="center" spacing="5" my="8">
             <Avatar user={user} />
             <Code>@{user.username}</Code>
-            <Button
-                colorScheme="teal"
-                w="full"
-                as={Link}
-                to={`${PROTECTED}/profile/${user?.id}`}
-            >
+            <Link to={`${PROTECTED}/profile/${user?.id}`}>
+            <button className='custom-button'>
                 Edit Profile
-            </Button>
+            </button>
+            </Link>
         </Stack>
     );
 }
@@ -42,16 +39,19 @@ export default function Sidebar() {
         <ActiveUser />
         <Box align ="center">
             <Box as="ul" borderBottom="2px solid" borderColor="teal.200" />
-                <Button
-                    variant="outline"
-                    colorScheme="teal"
-                    as={Link}
-                    to={USERS}
-                    mt="4"
-                    size="sm"
-                >
-                ALL USERS
-                </Button>
+                <Link to={USERS}>
+                    <button style={{
+                        border: "1px solid",
+                        borderRadius: "5px",
+                        color:"teal",
+                        marginTop: "1rem",
+                        fontSize: "1rem",
+                        padding: "0.35rem 1rem",
+                        height: "auto"
+                    }}>
+                        All Users
+                    </button>
+                </Link>
             </Box>
         </Box>
     );
