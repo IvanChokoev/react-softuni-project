@@ -1,4 +1,4 @@
-import { Box, Button, Code, Stack } from "@chakra-ui/react"
+import { Box, Code, Stack } from "@chakra-ui/react"
 import { useAuth } from "../../hooks/auth";
 import { PROTECTED, USERS } from "../../lib/routes";
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ function ActiveUser() {
     return (
         <Stack align="center" spacing="5" my="8">
             <Avatar user={user} />
-            <Code>@{user.username}</Code>
+            <p>@{user.username}</p>
             <Link to={`${PROTECTED}/profile/${user?.id}`}>
             <button className='custom-button'>
                 Edit Profile
