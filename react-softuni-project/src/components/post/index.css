@@ -1,17 +1,76 @@
 .your-component {
-    padding: 2px;
-    max-width: 600px;
+    position: relative;
+    padding: 1rem;
+     max-width: 1000px; 
+    width: 100%;
     text-align: left;
 }
 
+.header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid;
+        border-color: teal;
+        padding: 1rem;
+        z-index: 0;
+        background: rgba(0, 128, 128, 0.10);
+}
+
+.post-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-info-container {
+    position: absolute;
+    left: 4.5rem;
+    margin-left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.button-style {
+    display: block;
+    color: teal;
+    text-decoration: underline;
+    margin-right: 0.5rem;
+    margin-bottom: 0.1rem;
+    text-decoration: none;
+}
+
+
+.text-style {
+    display: block;
+    font-size: small;
+    color: gray;
+}
+
+.avatar-container {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .box-container {
-    border: 2px solid;
-    border-color: gray;
+border: 1px solid;
+    border-color: grey;
     border-radius: 0.25rem;
+    position: relative;
+    margin: 0 auto;
+    /* Center the box horizontally */
+    max-width: 600px;
+    /* Adjust the max-width if needed */
 }
 
 .inner-box {
-    padding: 2px;
+    padding: 3.5rem 3.5rem 0.2rem 0.2rem;
     min-height: 30px;
 }
 
