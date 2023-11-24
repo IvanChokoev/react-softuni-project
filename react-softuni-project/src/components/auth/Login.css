@@ -30,6 +30,7 @@ body {
 form {
     display: flex;
     flex-direction: column;
+    padding: 1rem;
 }
 
 .form-control {
@@ -78,12 +79,16 @@ input {
 .additional-info {
     font-size: 0.9rem;
     text-align: center;
+    padding: 1rem;
+    margin: -8px;
 }
 
 .register-link {
     color: #38a169;
     font-weight: bold;
     text-decoration: underline;
+    margin: 0;
+    text-align: center;
 }
 
 .register-link:hover {

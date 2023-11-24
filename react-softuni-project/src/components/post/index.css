@@ -35,16 +35,6 @@
     transform: translateY(-50%);
 }
 
-.button-style {
-    display: block;
-    color: teal;
-    text-decoration: underline;
-    margin-right: 0.5rem;
-    margin-bottom: 0.1rem;
-    text-decoration: none;
-}
-
-
 .text-style {
     display: block;
     font-size: small;
