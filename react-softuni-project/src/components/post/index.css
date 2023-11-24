@@ -59,11 +59,14 @@
 }
 
 .box-container {
-border: 1px solid;
+    border: 1px solid;
     border-color: grey;
     border-radius: 0.25rem;
     position: relative;
-    margin: 0 auto;
+    padding-left: 0.5rem;
+    padding-right: 0.1rem;
+    padding-bottom: 0.5rem;
+    margin:  auto;
     /* Center the box horizontally */
     max-width: 600px;
     /* Adjust the max-width if needed */
@@ -78,3 +81,59 @@ border: 1px solid;
     word-break: break-word;
     font-size: 0.9rem;
 }
+
+.actions-container {
+    display: flex;
+    padding-top: 0.5rem;
+}
+
+.action-item {
+    margin-right: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.action-item:hover {
+    background-color: rgba(255, 0, 0, 0.200);
+    border-radius: 1rem;
+}
+
+.comment-action:hover{
+        background-color: rgba(0, 128, 128, 0.200);
+        border-radius: 1rem;
+        }
+
+.action-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font-size: 1rem;
+}
+
+.delete-container {
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 0;
+}
+
+.delete-button {
+    color: red;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+
+.comment-button {
+    color: teal;
+}
+
+p{
+    margin-left: 0.5rem;
+}
+
+.no-posts-message {
+    text-align: center;
+    font-size: 1.5rem;}
