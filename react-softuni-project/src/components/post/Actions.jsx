@@ -10,6 +10,7 @@ import{useAuth} from "../../hooks/auth";
 import { useToggleLike, useDeletePost } from "../../hooks/posts"
 import { Link } from "react-router-dom";
 import { PROTECTED } from "../../lib/routes";
+import { useComments } from "../../hooks/comments";
 import "./index.css";
 
 export default function Actions({post}) {
@@ -17,12 +18,11 @@ export default function Actions({post}) {
     const{user, isLoading: userLoading} = useAuth();
 
     const isLiked = likes.includes(user?.id);
-    const { toggleLike, isLoading: likeLoading} = useToggleLike({
-        id, 
-        isLiked, 
-        uid: user?.id
-    });
+    const config = {id, isLiked, uid: user?.id,}
+
+    const { toggleLike, isLoading: likeLoading} = useToggleLike(config);
     const {deletePost, isLoading: deleteLoading} = useDeletePost(id);
+    const {comments, isLoading: commentsLoading} = useComments(id);
 
 
   return (
@@ -43,8 +43,8 @@ export default function Actions({post}) {
                     to={`${PROTECTED}/comments/${id}`}
                     className="action-button comment-button"
                 >
-                    <FaRegComment />
-                    <p>5</p>
+                  {comments?.length === 0 ? <FaRegComment /> : <FaComment />}
+                  <p>{comments?.length}</p>
                 </Link>
             </div>
 
