@@ -1,11 +1,15 @@
 import React from 'react';
-import {Box, Text} from "@chakra-ui/react";
 import Post from './index';
+import "./index.css"
 
 export default function PostsLists({posts}) {
-  return <div className="post-list">
-    {posts?.length === 0 
-    ? <Text textAlign="center" fontSize="xl">No posts yet ... felling a little lonely.</Text>
-    : posts?.map((post) => <Post key={post.id} post={post} />)}
-  </div>
+  const reversedPosts = posts?.slice().reverse(); // Create a copy of the array and reverse it
+
+  return (
+    <div className="post-list">
+      {reversedPosts?.length === 0
+        ? <p className="no-posts-message">No posts yet... feeling a little lonely.</p>
+        : reversedPosts?.map((post) => <Post key={post.id} post={post} />)
+      }
+    </div>);
 }
