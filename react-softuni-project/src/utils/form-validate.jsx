@@ -8,7 +8,7 @@ export const usernameValidate = {
         message: "Username must be at least 6 characters long",
     },
     pattern: {
-        value: /^[a-zA-Z0-9]+$/,
+        value: /^[a-zA-Z0-9\s]+$/,
         message: "Username must be alphanumeric",
     },
 };
