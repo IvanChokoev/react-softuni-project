@@ -4,7 +4,8 @@ import { useUser } from '../../hooks/users';
 import { PROTECTED } from "../../lib/routes";
 import { Link } from "react-router-dom";
 
-export default function Header({ uid, date }) {
+export default function Header({ post }) {
+    const {uid, date} = post;
     const{user, isLoading} = useUser(uid);
 
     if (isLoading) return "Loading...";
@@ -20,11 +21,11 @@ export default function Header({ uid, date }) {
         const days = Math.floor(hours / 24);
 
         if (days > 0) {
-            return `${days} days ago`;
+            return `${days} day${days !== 1 ? 's' : ''} ago`;
         } else if (hours > 0) {
-            return `${hours} hours ago`;
+            return `${hours} hour${hours !== 1 ? 's' : ''} ago`;
         } else if (minutes > 0) {
-            return `${minutes} minutes ago`;
+            return `${minutes} minute${minutes !== 1 ? 's' : ''} ago`;
         } else {
             return `less than a minute ago`;
         }
