@@ -1,0 +1,97 @@
+.comment-form-container {
+    max-width: 600px;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgba(0, 128, 128, 0.300);
+    /* Add your desired background color */
+    border-radius: 0.5rem;
+    /* Adjust the radius value as needed */
+}
+
+.comment-form {
+    display: flex;
+    padding: 0;
+}
+
+
+.comment-form-content {
+    flex: 1;
+    margin-left: 16px;
+}
+
+.comment-input {
+    margin-bottom: 0;
+}
+
+.comment-input input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.comment-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-style.loading {
+    opacity: 0.7;
+    /* Adjust the opacity for the loading state */
+    cursor: not-allowed;
+}
+
+
+.comment-container {
+    padding-top: 8px;
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+    background-color: rgba(0, 128, 128, 0.190);
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.comment-header {
+    display: flex;
+    padding-bottom: 8px;
+    padding-left: 0.5rem;
+    border-bottom: 0.3rem  solid teal;
+}
+
+.user-info {
+    flex: 1;
+    margin-left: 16px;
+}
+
+.button-style {
+    display: inline-block;
+    color: teal;
+    text-decoration: underline;
+    margin-right: 8px;
+    margin-bottom: 2px;
+    text-decoration: none;
+}
+
+.timestamp {
+    font-size: small;
+    color: gray;
+}
+
+.delete-button {
+    color: red;
+}
+
+.delete-button-own-comment{
+    color: red;
+    text-align: left;
+}
+
+.comment-content {
+    padding: 8px;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    font-size: small;
+    background-color: rgba(255, 255, 255, 0.60);
+}
