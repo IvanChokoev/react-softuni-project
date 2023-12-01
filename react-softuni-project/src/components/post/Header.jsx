@@ -1,8 +1,6 @@
 import React from 'react';
 import UserAvatar from "../../components/profile/Avatar.jsx";
 import { useUser } from '../../hooks/users';
-import { PROTECTED } from "../../lib/routes";
-import { Link } from "react-router-dom";
 import  CalculateRelativeTime  from "../../utils/dateAndTime.jsx"
 import UsernameButton from '../profile/UsernameButton.jsx';
 
@@ -20,7 +18,7 @@ export default function Header({ post }) {
             </div>
             <div className="user-info-container">
                 <UsernameButton user={user}/>
-                <span className="text-style">{CalculateRelativeTime(date)} </span>
+                <span className="text-style">{CalculateRelativeTime({ timestamp: date })} </span>
             </div>
         </div>
 
