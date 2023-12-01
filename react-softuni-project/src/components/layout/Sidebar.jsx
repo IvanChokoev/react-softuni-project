@@ -13,8 +13,9 @@ function ActiveUser() {
     return (
         <Stack align="center" spacing="5" my="8">
             <UserAvatar user={user} />
-            <p>@{user.username}</p>
             <Link to={`${PROTECTED}/profile/${user?.id}`}>
+            <p>@{user.username}</p>
+            <br></br>
             <button className='custom-button'>
                 Edit Profile
             </button>
