@@ -5,6 +5,7 @@ import Register from "../components/auth/Register";
 import Layout from "../components/layout";
 import Dashboard from "../components/dashboard/index";
 import Comments from "../components/comments";
+import Profile from "../components/profile";
 
 
 export const ROOT = "/";
@@ -35,7 +36,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: PROFILE,
-                element: "User Profile for specific ID",
+                element: <Profile/>,
             },
             {
                 path: COMMENTS,
