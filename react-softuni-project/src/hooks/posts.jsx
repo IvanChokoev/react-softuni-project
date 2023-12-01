@@ -100,7 +100,7 @@ export function usePosts(uid = null) {
     const q = uid
         ? query(
             collection(db, "posts"),
-            orderBy("date", "desc"),
+            orderBy("date", "asc"),
             where("uid", "==", uid)
         )
         : query(collection(db, "posts"), orderBy("date", "asc"));
