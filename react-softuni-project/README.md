@@ -1,6 +1,6 @@
 # Social Network App with ReactJS + Firebase v9 + Chakra UI
 
-Welcome to the documentation for our Social Network App! This application is a Single Page Application built using ReactJS, Firebase v9, and Chakra UI. It enables users to register, log in, create posts, like and comment on posts, update their profiles, and connect with other users.
+Welcome to the documentation for my React Social Network App! This application is a Single Page Application built using ReactJS, Firebase v9, and Chakra UI. It enables users to register, log in, create posts, like and comment on posts, update their profiles, and connect with other users.
 
 ## Table of Contents
 - [Project Overview](#project-overview)
