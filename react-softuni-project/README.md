@@ -21,8 +21,12 @@ Welcome to the documentation for our Social Network App! This application is a S
 
 The Social Network App has two main parts:
 1. **Public Part**: Accessible without authentication, includes the application start page, user login and registration forms.
-   
-   ![image](https://github.com/IvanChokoev/react-softuni-project/assets/102393638/fe8b2e23-139d-4bbe-8a55-4e92e4b50f4f) ![image](https://github.com/IvanChokoev/react-softuni-project/assets/102393638/fd105de4-3d77-4a83-8a99-dc3fb9882e4d)
+
+Login Page:
+   ![image](https://github.com/IvanChokoev/react-softuni-project/assets/102393638/fe8b2e23-139d-4bbe-8a55-4e92e4b50f4f)
+
+Register Page:
+   ![image](https://github.com/IvanChokoev/react-softuni-project/assets/102393638/fd105de4-3d77-4a83-8a99-dc3fb9882e4d)
 
 3. **Private Part (User Area)**: Accessible after successful login, includes user profiles management, user posts, and interactions with posts (likes, comments).
 
@@ -31,15 +35,16 @@ The Social Network App has two main parts:
 ### Public Part
 
 The public part includes the following pages:
-- **Home Page**: Displays an overview of public posts.
 - **Login Page**: Allows users to log in.
 - **Register Page**: Enables users to create new accounts.
 
 ### Private Part (User Area)
 
 The private part includes the following pages:
-- **User Dashboard**: Displays user-specific information and options to edit the profile or view all users.
-- **Post Feed**: Shows all user posts with options to like, comment, and delete.
+- **Dashboard**: Shows all user posts with options to like, comment, and delete(only works for own user posts). the Sidebar Displays user-specific information and options to edit the profile or view all users.
+- **Users**: Displays users information like Avatar, user names and a grid of existing users.
+- **Profile**: Displays user-specific information like the number of posts, a list of posts, date joined, user name and avatar icon.
+- **Comments**: Displays all users comments under a post with options to like other comments and delete your own comment.
 
 ## General Requirements
 
@@ -50,7 +55,6 @@ Our Social Network App fulfills the following general requirements:
 - Authentication and authorization.
 - Client-side routing using React Router.
 - Communication with a remote service (Firebase).
-- Demonstration of React programming concepts: stateless and stateful components, bound forms, synthetic events, and component styling.
 - Use of a source control system (GitHub) with commits spread over at least 3 days.
 
 ## Technologies Used
