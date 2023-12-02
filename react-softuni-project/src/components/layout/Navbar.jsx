@@ -1,4 +1,4 @@
-import { Button, Flex, Link } from "@chakra-ui/react";
+import { Flex, Link } from "@chakra-ui/react";
 import { DASHBOARD } from "../../lib/routes";
 import { Link as RouterLink } from "react-router-dom";
 import { useLogout } from "../../hooks/auth";

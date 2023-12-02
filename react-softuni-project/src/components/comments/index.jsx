@@ -1,5 +1,4 @@
 import React from "react";
-import {Box} from "@chakra-ui/react";
 import { usePost } from "../../hooks/posts";
 import Post from "../post";
 import {useParams} from "react-router-dom";
@@ -13,10 +12,10 @@ export default function Comments() {
   if (isLoading) return "Loading comments...";
 
   return (
-    <Box align="center" pt="50">
+    <div style={{ textAlign: 'center', paddingTop: '50px' }}>
       <Post post={post} />
       <NewComment post={post} />
       <CommentList post={post} />
-    </Box>
+    </div>
   );
 }

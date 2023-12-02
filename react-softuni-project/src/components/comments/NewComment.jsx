@@ -1,4 +1,3 @@
-import {Box, Flex, Input, Button} from "@chakra-ui/react"
 import { useAuth } from "../../hooks/auth";
 import  UserAvatar  from "../../components/profile/Avatar";
 import { useForm } from "react-hook-form";

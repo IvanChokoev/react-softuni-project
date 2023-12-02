@@ -1,7 +1,7 @@
 import React from 'react';
 import UserAvatar from "../../components/profile/Avatar.jsx";
 import { useUser } from '../../hooks/users';
-import  CalculateRelativeTime  from "../../utils/dateAndTime.jsx"
+import { CalculateRelativeTime }  from "../../utils/dateAndTime.jsx"
 import UsernameButton from '../profile/UsernameButton.jsx';
 
 export default function Header({ post }) {
