@@ -34,6 +34,10 @@ display: flex;
     font-size: 1.1rem;
     line-height: 1.5;
     border-radius: 0.25rem;
+            &:hover {
+            background-color: rgb(2, 172, 172);
+            /* Change color on hover */
+        }
 }
 
 .button:disabled {
