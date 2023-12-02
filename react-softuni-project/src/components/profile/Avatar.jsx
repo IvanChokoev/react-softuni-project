@@ -2,7 +2,7 @@ import { Avatar as ChakraAvatar } from "@chakra-ui/react";
 import { PROTECTED } from "../../lib/routes";
 import { Link } from "react-router-dom";
 
-export default function UserAvatar({ user, size = "xl"}) {
+export default function UserAvatar({ user, size = "xl", overrideAvatar=null}) {
 
   if (!user) {
     return null; 
@@ -14,7 +14,7 @@ export default function UserAvatar({ user, size = "xl"}) {
       to={`${PROTECTED}/profile/${user.id}`}
       name={user.username}
       size={size}
-      src={user.avatar}
+      src={overrideAvatar || user.avatar}
       _hover={{ cursor: "pointer", opacity: "0.8" }}
     />
   );
