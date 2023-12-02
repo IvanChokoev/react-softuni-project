@@ -50,7 +50,7 @@ The private part includes the following pages:
 
 ## General Requirements
 
-Our Social Network App fulfills the following general requirements:
+My Social Network App fulfills the following general requirements:
 - At least 3 different dynamic pages.
 - Specific views, including Catalog (list of all posts) and Details (information about a specific post).
 - CRUD operations on a collection (posts), accessible to logged-in users.
@@ -59,15 +59,16 @@ Our Social Network App fulfills the following general requirements:
 - Communication with a remote service (Firebase).
 - Use of a source control system (GitHub) with commits spread over at least 3 days.
 
-## Technologies Used
+## Packages Used
 
-- ReactJS
-- Firebase v9
-- Chakra UI
-- react-firebase-hooks
+- react
+- react-dom
 - react-router-dom
 - react-hook-form
 - react-icons
+- firebase
+- react-firebase-hooks
+- chakra-ui/react
 
 ## Getting Started
 
