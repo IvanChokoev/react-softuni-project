@@ -21,4 +21,10 @@ const CalculateRelativeTime = ({ timestamp }) => {
     }
 };
 
-export default CalculateRelativeTime;
+const FormatDate = ({ timestamp }) => {
+    const date = new Date(timestamp);
+    const options = { day: '2-digit', month: 'long', year: 'numeric' };
+    return date.toLocaleDateString(undefined, options);
+};
+
+export { CalculateRelativeTime, FormatDate };
