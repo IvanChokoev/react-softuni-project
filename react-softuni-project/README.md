@@ -74,23 +74,22 @@ To run the Social Network App locally using Vite, follow these steps:
 
 Start the development server on your localhost using the following command:
 
-```bash
-yarn dev
+    yarn  dev
 
 or
 
-```bash
-npm run dev
+    npm run dev
 
 This will launch the app on http://localhost:3000 by default.
 
+
 ### Stopping the Server
+
 To stop the development server, use the following command:
 
-```bash
-Ctrl + C
+    Ctrl  +  C
+
 
 ### Screenshots
-Here are some screenshots showcasing different parts of the Social Network App.
 
-Insert screenshots here
+Here  are  some  screenshots  showcasing  different  parts  of  the  Social  Network  App.
