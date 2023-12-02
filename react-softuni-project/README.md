@@ -23,10 +23,12 @@ The Social Network App has two main parts:
 1. **Public Part**: Accessible without authentication, includes the application start page, user login and registration forms.
 
 Login Page:
-   ![image](https://github.com/IvanChokoev/react-softuni-project/assets/102393638/fe8b2e23-139d-4bbe-8a55-4e92e4b50f4f)
+
+![image](https://github.com/IvanChokoev/react-softuni-project/assets/102393638/fe8b2e23-139d-4bbe-8a55-4e92e4b50f4f)
 
 Register Page:
-   ![image](https://github.com/IvanChokoev/react-softuni-project/assets/102393638/fd105de4-3d77-4a83-8a99-dc3fb9882e4d)
+
+![image](https://github.com/IvanChokoev/react-softuni-project/assets/102393638/fd105de4-3d77-4a83-8a99-dc3fb9882e4d)
 
 3. **Private Part (User Area)**: Accessible after successful login, includes user profiles management, user posts, and interactions with posts (likes, comments).
 
