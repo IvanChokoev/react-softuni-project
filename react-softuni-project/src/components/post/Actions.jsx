@@ -1,4 +1,3 @@
-import{Flex, IconButton} from "@chakra-ui/react";
 import {
     FaRegHeart, 
     FaHeart, 
@@ -14,7 +13,7 @@ import { useComments } from "../../hooks/comments";
 import "./index.css";
 
 export default function Actions({post}) {
-    const{id, likes} = post;
+    const{id, likes, uid} = post;
     const{user, isLoading: userLoading} = useAuth();
 
     const isLiked = likes.includes(user?.id);
@@ -41,6 +40,7 @@ export default function Actions({post}) {
             <div className="action-item comment-action">
                 <Link
                     to={`${PROTECTED}/comments/${id}`}
+                    isLoading={commentsLoading}
                     className="action-button comment-button"
                 >
                   {comments?.length === 0 ? <FaRegComment /> : <FaComment />}
@@ -49,13 +49,15 @@ export default function Actions({post}) {
             </div>
 
           <div className="delete-container action-item">
-              <button
+              {!userLoading 
+                && user.id === uid 
+                && (<button
                   onClick={deletePost}
                   disabled={deleteLoading}
                   className="action-button delete-button"
-              >
+                  >
                   <FaTrash />
-              </button>
+              </button>)}
           </div>
         </div>
     );

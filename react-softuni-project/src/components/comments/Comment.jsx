@@ -1,7 +1,7 @@
 import { useDeleteComment } from "../../hooks/comments";
 import UserAvatar from "../profile/Avatar";
 import { useUser } from "../../hooks/users";
-import CalculateRelativeTime from "../../utils/dateAndTime";
+import {CalculateRelativeTime} from "../../utils/dateAndTime";
 import "./index.css"
 
 import { FaTrash } from "react-icons/fa";
@@ -33,6 +33,7 @@ export default function Comment({ comment }) {
                       >
                           <FaTrash />
                       </button>
+                    //   Fix a bit of css for the button
                   )}
               </div>
           </div>
