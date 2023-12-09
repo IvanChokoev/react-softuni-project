@@ -3,6 +3,7 @@ import { useAuth } from "../../hooks/auth";
 import { PROTECTED, USERS } from "../../lib/routes";
 import { Link } from "react-router-dom";
 import UserAvatar from "../profile/Avatar";
+import "./Navbar.css";
 
 
 function ActiveUser() {
@@ -16,7 +17,7 @@ function ActiveUser() {
             <Link to={`${PROTECTED}/profile/${user?.id}`}>
             <p>@{user.username}</p>
             <br></br>
-            <button className='custom-button'>
+            <button className='edit-custom-button'>
                 Edit Profile
             </button>
             </Link>
